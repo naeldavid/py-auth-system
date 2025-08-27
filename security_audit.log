@@ -1,0 +1,83 @@
+2025-08-27 17:04:32,294 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.24.0.21:5000
+2025-08-27 17:04:32,295 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-27 17:04:32,299 - INFO -  * Restarting with stat
+2025-08-27 17:04:32,608 - WARNING -  * Debugger is active!
+2025-08-27 17:04:32,619 - INFO -  * Debugger PIN: 136-615-443
+2025-08-27 17:06:30,431 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.24.0.21:5000
+2025-08-27 17:06:30,432 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-27 17:06:30,433 - INFO -  * Restarting with stat
+2025-08-27 17:06:30,765 - WARNING -  * Debugger is active!
+2025-08-27 17:06:30,771 - INFO -  * Debugger PIN: 136-615-443
+2025-08-27 17:07:13,711 - INFO -  * Detected change in '/Users/naeldavid/Documents/python-simple-local-user-network/web_auth.py', reloading
+2025-08-27 17:07:13,787 - INFO -  * Restarting with stat
+2025-08-27 17:07:14,134 - WARNING -  * Debugger is active!
+2025-08-27 17:07:14,147 - INFO -  * Debugger PIN: 136-615-443
+2025-08-27 17:07:25,648 - INFO - 127.0.0.1 - - [27/Aug/2025 17:07:25] "GET / HTTP/1.1" 200 -
+2025-08-27 17:07:25,983 - INFO - 127.0.0.1 - - [27/Aug/2025 17:07:25] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-08-27 17:07:26,498 - INFO - 127.0.0.1 - - [27/Aug/2025 17:07:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-08-27 17:08:22,776 - INFO - {"timestamp": "2025-08-27T17:08:22.776056", "event_type": "LOGIN_ATTEMPT", "username": "nael", "details": {"success": true}}
+2025-08-27 17:08:22,776 - INFO - {"timestamp": "2025-08-27T17:08:22.776652", "event_type": "SESSION_CREATED", "username": "nael", "details": {"session_token": "jLL-ZlaQx7an0w_V..."}}
+2025-08-27 17:08:22,777 - INFO - 127.0.0.1 - - [27/Aug/2025 17:08:22] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-08-27 17:08:22,803 - INFO - 127.0.0.1 - - [27/Aug/2025 17:08:22] "GET /dashboard HTTP/1.1" 200 -
+2025-08-27 17:08:22,909 - INFO - 127.0.0.1 - - [27/Aug/2025 17:08:22] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-08-27 17:08:48,364 - INFO - 127.0.0.1 - - [27/Aug/2025 17:08:48] "GET /api/user/nael HTTP/1.1" 200 -
+2025-08-27 17:08:52,359 - INFO -  * Detected change in '/Users/naeldavid/Documents/python-simple-local-user-network/web_auth.py', reloading
+2025-08-27 17:08:52,456 - INFO -  * Restarting with stat
+2025-08-27 17:08:53,275 - WARNING -  * Debugger is active!
+2025-08-27 17:08:53,294 - INFO -  * Debugger PIN: 136-615-443
+2025-08-27 17:08:56,077 - INFO - 127.0.0.1 - - [27/Aug/2025 17:08:56] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-08-27 17:08:56,112 - INFO - 127.0.0.1 - - [27/Aug/2025 17:08:56] "GET / HTTP/1.1" 200 -
+2025-08-27 17:08:56,225 - INFO - 127.0.0.1 - - [27/Aug/2025 17:08:56] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-08-27 17:10:00,185 - INFO -  * Detected change in '/Users/naeldavid/Documents/python-simple-local-user-network/web_auth.py', reloading
+2025-08-27 17:10:00,346 - INFO -  * Restarting with stat
+2025-08-27 17:10:01,075 - WARNING -  * Debugger is active!
+2025-08-27 17:10:01,089 - INFO -  * Debugger PIN: 136-615-443
+2025-08-27 17:10:01,222 - INFO - 127.0.0.1 - - [27/Aug/2025 17:10:01] "GET / HTTP/1.1" 200 -
+2025-08-27 17:10:01,508 - INFO - 127.0.0.1 - - [27/Aug/2025 17:10:01] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-08-27 17:11:07,896 - INFO - 127.0.0.1 - - [27/Aug/2025 17:11:07] "GET / HTTP/1.1" 200 -
+2025-08-27 17:11:08,019 - INFO - 127.0.0.1 - - [27/Aug/2025 17:11:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-27 17:11:08,092 - INFO - 127.0.0.1 - - [27/Aug/2025 17:11:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-08-27 17:11:11,500 - INFO - {"timestamp": "2025-08-27T17:11:11.500067", "event_type": "LOGIN_ATTEMPT", "username": "nael", "details": {"success": false}}
+2025-08-27 17:11:11,501 - INFO - 127.0.0.1 - - [27/Aug/2025 17:11:11] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-08-27 17:11:11,509 - INFO - 127.0.0.1 - - [27/Aug/2025 17:11:11] "GET / HTTP/1.1" 200 -
+2025-08-27 17:11:11,557 - INFO - 127.0.0.1 - - [27/Aug/2025 17:11:11] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-27 17:11:18,208 - INFO - {"timestamp": "2025-08-27T17:11:18.208902", "event_type": "LOGIN_ATTEMPT", "username": "nael", "details": {"success": true}}
+2025-08-27 17:11:18,209 - INFO - {"timestamp": "2025-08-27T17:11:18.209028", "event_type": "SESSION_CREATED", "username": "nael", "details": {"session_token": "5sJ_kgALWdccQgVd..."}}
+2025-08-27 17:11:18,209 - INFO - 127.0.0.1 - - [27/Aug/2025 17:11:18] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-08-27 17:11:18,226 - INFO - 127.0.0.1 - - [27/Aug/2025 17:11:18] "GET /dashboard HTTP/1.1" 200 -
+2025-08-27 17:11:18,297 - INFO - 127.0.0.1 - - [27/Aug/2025 17:11:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-27 17:11:20,935 - INFO - 127.0.0.1 - - [27/Aug/2025 17:11:20] "GET /editor HTTP/1.1" 200 -
+2025-08-27 17:11:20,999 - INFO - 127.0.0.1 - - [27/Aug/2025 17:11:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-27 17:11:32,783 - INFO - 127.0.0.1 - - [27/Aug/2025 17:11:32] "POST /save_file HTTP/1.1" 200 -
+2025-08-27 17:11:35,150 - INFO - 127.0.0.1 - - [27/Aug/2025 17:11:35] "GET /dashboard HTTP/1.1" 200 -
+2025-08-27 17:11:35,210 - INFO - 127.0.0.1 - - [27/Aug/2025 17:11:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-27 17:11:37,318 - INFO - 127.0.0.1 - - [27/Aug/2025 17:11:37] "GET /admin/users HTTP/1.1" 200 -
+2025-08-27 17:11:37,382 - INFO - 127.0.0.1 - - [27/Aug/2025 17:11:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-27 17:11:41,908 - INFO - 127.0.0.1 - - [27/Aug/2025 17:11:41] "GET /dashboard HTTP/1.1" 200 -
+2025-08-27 17:11:41,972 - INFO - 127.0.0.1 - - [27/Aug/2025 17:11:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-27 17:14:37,697 - INFO - 127.0.0.1 - - [27/Aug/2025 17:14:37] "GET /admin/users HTTP/1.1" 200 -
+2025-08-27 17:14:37,821 - INFO - 127.0.0.1 - - [27/Aug/2025 17:14:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-27 17:14:43,050 - INFO - 127.0.0.1 - - [27/Aug/2025 17:14:43] "GET /dashboard HTTP/1.1" 200 -
+2025-08-27 17:14:43,113 - INFO - 127.0.0.1 - - [27/Aug/2025 17:14:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-27 17:14:47,813 - INFO - {"timestamp": "2025-08-27T17:14:47.813600", "event_type": "LOGOUT", "username": "nael", "details": {"session_token": "5sJ_kgALWdccQgVd..."}}
+2025-08-27 17:14:47,814 - INFO - 127.0.0.1 - - [27/Aug/2025 17:14:47] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-08-27 17:14:47,822 - INFO - 127.0.0.1 - - [27/Aug/2025 17:14:47] "GET / HTTP/1.1" 200 -
+2025-08-27 17:14:47,887 - INFO - 127.0.0.1 - - [27/Aug/2025 17:14:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-27 17:15:00,779 - INFO -  * Detected change in '/Users/naeldavid/Documents/python-simple-local-user-network/web_auth.py', reloading
+2025-08-27 17:15:01,056 - INFO -  * Restarting with stat
+2025-08-27 17:15:01,905 - WARNING -  * Debugger is active!
+2025-08-27 17:15:01,919 - INFO -  * Debugger PIN: 136-615-443
+2025-08-27 17:16:00,179 - INFO -  * Detected change in '/Users/naeldavid/Documents/python-simple-local-user-network/web_auth.py', reloading
+2025-08-27 17:16:00,306 - INFO -  * Restarting with stat
+2025-08-27 17:16:01,294 - WARNING -  * Debugger is active!
+2025-08-27 17:16:01,357 - INFO -  * Debugger PIN: 136-615-443
+2025-08-27 17:16:37,283 - INFO -  * Detected change in '/Users/naeldavid/Documents/python-simple-local-user-network/web_auth.py', reloading
+2025-08-27 17:16:37,356 - INFO -  * Restarting with stat
+2025-08-27 17:16:37,819 - WARNING -  * Debugger is active!
+2025-08-27 17:16:37,827 - INFO -  * Debugger PIN: 136-615-443

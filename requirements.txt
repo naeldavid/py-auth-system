@@ -1,0 +1,15 @@
+# Core Flask dependencies
+Flask==2.3.3
+Werkzeug==2.3.7
+
+# Built-in Python modules used:
+# hashlib - Password hashing
+# json - Data storage  
+# os - File operations
+# secrets - Secure random generation
+# time - Session management
+# datetime - Timestamps
+# typing - Type hints
+# enum - Role definitions
+# logging - Audit logging
+# getpass - Secure CLI input

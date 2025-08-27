@@ -1,0 +1,299 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - {{ username }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h5><i class="fas fa-tachometer-alt"></i> User Dashboard</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6><i class="fas fa-user-circle"></i> Profile Information</h6>
+                        <ul class="list-unstyled">
+                            <li><strong>Username:</strong> {{ username }}</li>
+                            <li><strong>Email:</strong> {{ user.email }}</li>
+                            <li><strong>Role:</strong> 
+                                <span class="badge bg-{{ 'danger' if user.role == 'admin' else 'primary' }}">
+                                    {{ user.role.title() }}
+                                </span>
+                            </li>
+                            <li><strong>MFA:</strong> 
+                                <span class="badge bg-{{ 'success' if user.mfa_enabled else 'warning' }}">
+                                    {{ 'Enabled' if user.mfa_enabled else 'Disabled' }}
+                                </span>
+                            </li>
+                        </ul>
+                        <div class="mt-3 p-2 bg-dark rounded">
+                            <small class="text-light">
+                                <strong>Auth Credentials:</strong><br>
+                                Username: {{ username }}<br>
+                                Password: password<br>
+                                PIN: 000
+                            </small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h6><i class="fas fa-clock"></i> Session Information</h6>
+                        <ul class="list-unstyled">
+                            <li><strong>Last Login:</strong> 
+                                {{ user.last_login[:19] if user.last_login else 'Never' }}
+                            </li>
+                            <li><strong>Account Created:</strong> 
+                                {{ user.created_at[:19] if user.created_at else 'Unknown' }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h6><i class="fas fa-file-alt"></i> Your Files</h6>
+            </div>
+            <div class="card-body">
+                {% if user.files %}
+                    <ul class="list-group list-group-flush">
+                        {% for file in user.files %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-file"></i> {{ file }}</span>
+                                <div>
+                                    <button class="btn btn-sm btn-outline-primary me-1" onclick="editFile('{{ file }}')">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger" onclick="deleteFile('{{ file }}')">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="text-muted">No files available</p>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-header bg-warning text-dark">
+                <h6><i class="fas fa-cog"></i> Quick Actions</h6>
+            </div>
+            <div class="card-body">
+                <button class="btn btn-outline-light btn-sm w-100 mb-2" onclick="loadUserInfo()">
+                    <i class="fas fa-refresh"></i> Refresh Info
+                </button>
+                <button class="btn btn-outline-light btn-sm w-100 mb-2" onclick="showPasswordChange()">
+                    <i class="fas fa-key"></i> Change Password
+                </button>
+                <a href="{{ url_for('editor') }}" class="btn btn-outline-light btn-sm w-100 mb-2">
+                    <i class="fas fa-edit"></i> Text Editor
+                </a>
+                {% if username == 'nael' %}
+                <a href="{{ url_for('admin_users') }}" class="btn btn-outline-warning btn-sm w-100 mb-2">
+                    <i class="fas fa-users-cog"></i> Admin Panel
+                </a>
+                <button class="btn btn-outline-success btn-sm w-100" onclick="showCreateUser()">
+                    <i class="fas fa-user-plus"></i> Create User
+                </button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="fileModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title">File Viewer</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p id="fileContent">File content would be displayed here...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="passwordModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title">Change Password</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="passwordForm">
+                    <div class="mb-3">
+                        <label class="form-label">Current Password</label>
+                        <input type="password" class="form-control" id="currentPassword" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">New Password</label>
+                        <input type="password" class="form-control" id="newPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Change Password</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="createUserModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title">Create New User</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="createUserForm">
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-control" id="newUsername" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" id="newEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" id="newUserPassword" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Role</label>
+                        <select class="form-control" id="newRole">
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success">Create User</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function editFile(filename) {
+    window.location.href = `/editor?file=${filename}`;
+}
+
+function deleteFile(filename) {
+    if (confirm(`Are you sure you want to delete ${filename}?`)) {
+        fetch('/delete_file', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({filename: filename})
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('File deleted successfully!');
+                location.reload();
+            } else {
+                alert('Error: ' + data.error);
+            }
+        });
+    }
+}
+
+function showCreateUser() {
+    new bootstrap.Modal(document.getElementById('createUserModal')).show();
+}
+
+function loadUserInfo() {
+    fetch(`/api/user/{{ username }}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert('Error: ' + data.error);
+            } else {
+                alert('User info refreshed successfully!');
+            }
+        })
+        .catch(error => {
+            alert('Error loading user info: ' + error);
+        });
+}
+
+function showPasswordChange() {
+    new bootstrap.Modal(document.getElementById('passwordModal')).show();
+}
+
+document.getElementById('passwordForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const currentPassword = document.getElementById('currentPassword').value;
+    const newPassword = document.getElementById('newPassword').value;
+    
+    fetch('/change_password', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            current_password: currentPassword,
+            new_password: newPassword
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Password changed successfully!');
+            bootstrap.Modal.getInstance(document.getElementById('passwordModal')).hide();
+        } else {
+            alert('Error: ' + data.error);
+        }
+    })
+    .catch(error => {
+        alert('Error: ' + error);
+    });
+});
+
+document.getElementById('createUserForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const username = document.getElementById('newUsername').value;
+    const email = document.getElementById('newEmail').value;
+    const password = document.getElementById('newUserPassword').value;
+    const role = document.getElementById('newRole').value;
+    
+    fetch('/create_user', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: username,
+            email: email,
+            password: password,
+            role: role
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('User created successfully!');
+            bootstrap.Modal.getInstance(document.getElementById('createUserModal')).hide();
+            document.getElementById('createUserForm').reset();
+        } else {
+            alert('Error: ' + data.error);
+        }
+    })
+    .catch(error => {
+        alert('Error: ' + error);
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Panel - User Management{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5><i class="fas fa-users-cog"></i> User Management (Admin Only)</h5>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-secondary btn-sm">
+                    <i class="fas fa-arrow-left"></i> Back to Dashboard
+                </a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>MFA</th>
+                                <th>Last Login</th>
+                                <th>Files</th>
+                                <th>Created</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for username, user_data in users.items() %}
+                            <tr>
+                                <td>
+                                    <strong>{{ username }}</strong>
+                                    {% if username == 'nael' %}
+                                        <span class="badge bg-danger ms-1">ADMIN</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ user_data.email }}</td>
+                                <td>
+                                    <span class="badge bg-{{ 'danger' if user_data.role == 'admin' else 'primary' }}">
+                                        {{ user_data.role.title() }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="badge bg-{{ 'success' if user_data.mfa_enabled else 'warning' }}">
+                                        {{ 'Yes' if user_data.mfa_enabled else 'No' }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <small>{{ user_data.last_login[:19] if user_data.last_login else 'Never' }}</small>
+                                </td>
+                                <td>
+                                    <small>{{ user_data.files|length }} files</small>
+                                </td>
+                                <td>
+                                    <small>{{ user_data.created_at[:10] if user_data.created_at else 'Unknown' }}</small>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-4">
+                    <h6><i class="fas fa-info-circle"></i> System Statistics</h6>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card bg-primary">
+                                <div class="card-body text-center">
+                                    <h4>{{ users|length }}</h4>
+                                    <small>Total Users</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card bg-success">
+                                <div class="card-body text-center">
+                                    <h4>{{ users.values()|selectattr('role', 'equalto', 'admin')|list|length }}</h4>
+                                    <small>Admins</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card bg-info">
+                                <div class="card-body text-center">
+                                    <h4>{{ users.values()|selectattr('mfa_enabled', 'equalto', true)|list|length }}</h4>
+                                    <small>MFA Enabled</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card bg-warning">
+                                <div class="card-body text-center">
+                                    <h4>{{ users.values()|map(attribute='files')|map('length')|sum }}</h4>
+                                    <small>Total Files</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
