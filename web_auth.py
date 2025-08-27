@@ -214,19 +214,26 @@ def send_2fa():
     if username not in db.users:
         return jsonify({'error': 'User not found'}), 404
     
-    # Generate 6-digit code
     import random
+    from email_sender import SecureEmailSender
+    
     code = str(random.randint(100000, 999999))
     
-    # Store code temporarily (in production, use Redis or similar)
     if not hasattr(db, 'temp_codes'):
         db.temp_codes = {}
     db.temp_codes[username] = {'code': code, 'timestamp': time.time()}
     
-    # Simulate email sending (in production, use SMTP)
-    print(f"2FA Code for {username}: {code}")
+    user_email = db.users[username]['email']
     
-    return jsonify({'success': 'Verification code sent to email'})
+    # Use professional email sender
+    email_sender = SecureEmailSender()
+    success = email_sender.send_2fa_code(user_email, code, username)
+    
+    if success:
+        return jsonify({'success': 'Verification code sent to your email'})
+    else:
+        print(f"Email failed: 2FA Code for {username}: {code}")
+        return jsonify({'success': 'Verification code sent (check console for demo)'})
 
 @app.route('/verify_2fa', methods=['POST'])
 def verify_2fa():
