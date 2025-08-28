@@ -180,7 +180,12 @@ class SecureUserDatabase:
         session = self.active_sessions[token]
         current_time = time.time()
         
-        if current_time - session["last_activity"] > SecurityConfig.SESSION_TIMEOUT:
+        # Handle both datetime and float timestamps
+        last_activity = session["last_activity"]
+        if isinstance(last_activity, datetime):
+            last_activity = last_activity.timestamp()
+        
+        if current_time - last_activity > SecurityConfig.SESSION_TIMEOUT:
             username = session["username"]
             del self.active_sessions[token]
             self.audit_logger.log_event("SESSION_EXPIRED", username, {"session_token": token[:16] + "..."})

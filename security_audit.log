@@ -95,3 +95,197 @@
 2025-08-27 17:20:49,139 - INFO -  * Restarting with stat
 2025-08-27 17:20:49,988 - WARNING -  * Debugger is active!
 2025-08-27 17:20:49,997 - INFO -  * Debugger PIN: 136-615-443
+2025-08-28 10:36:32,867 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.7.250:5001
+2025-08-28 10:36:32,867 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-28 10:36:32,868 - INFO -  * Restarting with stat
+2025-08-28 10:36:33,084 - WARNING -  * Debugger is active!
+2025-08-28 10:36:33,092 - INFO -  * Debugger PIN: 143-448-994
+2025-08-28 10:36:36,055 - INFO - 127.0.0.1 - - [28/Aug/2025 10:36:36] "GET / HTTP/1.1" 200 -
+2025-08-28 10:36:36,091 - INFO - 127.0.0.1 - - [28/Aug/2025 10:36:36] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-08-28 10:36:36,501 - INFO - 127.0.0.1 - - [28/Aug/2025 10:36:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-08-28 10:36:47,477 - INFO - 127.0.0.1 - - [28/Aug/2025 10:36:47] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-08-28 10:36:47,484 - INFO - 127.0.0.1 - - [28/Aug/2025 10:36:47] "GET /login_2fa HTTP/1.1" 200 -
+2025-08-28 10:36:47,527 - INFO - 127.0.0.1 - - [28/Aug/2025 10:36:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 10:36:47,531 - INFO - 127.0.0.1 - - [28/Aug/2025 10:36:47] "GET /static/js/2fa.js HTTP/1.1" 200 -
+2025-08-28 10:37:35,339 - INFO -  * Detected change in '/Users/nael/Documents/python-simple-local-user-network/email_sender.py', reloading
+2025-08-28 10:37:35,378 - INFO -  * Restarting with stat
+2025-08-28 10:37:35,609 - WARNING -  * Debugger is active!
+2025-08-28 10:37:35,618 - INFO -  * Debugger PIN: 143-448-994
+2025-08-28 10:37:43,660 - INFO -  * Detected change in '/Users/nael/Documents/python-simple-local-user-network/email_sender.py', reloading
+2025-08-28 10:37:43,700 - INFO -  * Restarting with stat
+2025-08-28 10:37:43,932 - WARNING -  * Debugger is active!
+2025-08-28 10:37:43,940 - INFO -  * Debugger PIN: 143-448-994
+2025-08-28 10:54:13,978 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.7.250:5001
+2025-08-28 10:54:13,987 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-28 10:54:13,989 - INFO -  * Restarting with stat
+2025-08-28 10:54:14,336 - WARNING -  * Debugger is active!
+2025-08-28 10:54:14,346 - INFO -  * Debugger PIN: 143-448-994
+2025-08-28 10:54:17,040 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:17] "GET / HTTP/1.1" 200 -
+2025-08-28 10:54:17,094 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:17] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-08-28 10:54:17,124 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-08-28 10:54:27,164 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:27] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-08-28 10:54:27,170 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:27] "GET /login_2fa HTTP/1.1" 200 -
+2025-08-28 10:54:27,194 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:27] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 10:54:27,232 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:27] "GET /static/js/2fa.js HTTP/1.1" 200 -
+2025-08-28 10:54:36,745 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:36] "POST /verify_2fa HTTP/1.1" 200 -
+2025-08-28 10:54:36,804 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:36] "[35m[1mGET /dashboard HTTP/1.1[0m" 500 -
+2025-08-28 10:54:36,846 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:36] "GET /dashboard?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-08-28 10:54:36,854 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:36] "GET /dashboard?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-08-28 10:54:36,864 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:36] "GET /dashboard?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-08-28 10:54:36,865 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:36] "GET /dashboard?__debugger__=yes&cmd=resource&f=console.png&s=F6cNS3VGeqVgIya7Kn6Y HTTP/1.1" 200 -
+2025-08-28 10:54:57,989 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:57] "[35m[1mGET /dashboard HTTP/1.1[0m" 500 -
+2025-08-28 10:54:58,008 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:58] "[36mGET /dashboard?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-08-28 10:54:58,009 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:58] "[36mGET /dashboard?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-08-28 10:54:58,030 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:58] "[36mGET /dashboard?__debugger__=yes&cmd=resource&f=console.png&s=F6cNS3VGeqVgIya7Kn6Y HTTP/1.1[0m" 304 -
+2025-08-28 10:54:58,581 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:58] "[35m[1mGET /dashboard HTTP/1.1[0m" 500 -
+2025-08-28 10:54:58,633 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:58] "[36mGET /dashboard?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-08-28 10:54:58,634 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:58] "[36mGET /dashboard?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-08-28 10:54:58,655 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:58] "[36mGET /dashboard?__debugger__=yes&cmd=resource&f=console.png&s=F6cNS3VGeqVgIya7Kn6Y HTTP/1.1[0m" 304 -
+2025-08-28 10:54:58,952 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:58] "[35m[1mGET /dashboard HTTP/1.1[0m" 500 -
+2025-08-28 10:54:58,968 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:58] "[36mGET /dashboard?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-08-28 10:54:58,973 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:58] "[36mGET /dashboard?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-08-28 10:54:58,993 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:58] "[36mGET /dashboard?__debugger__=yes&cmd=resource&f=console.png&s=F6cNS3VGeqVgIya7Kn6Y HTTP/1.1[0m" 304 -
+2025-08-28 10:54:59,331 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:59] "[35m[1mGET /dashboard HTTP/1.1[0m" 500 -
+2025-08-28 10:54:59,347 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:59] "[36mGET /dashboard?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-08-28 10:54:59,349 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:59] "[36mGET /dashboard?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-08-28 10:54:59,368 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:59] "[36mGET /dashboard?__debugger__=yes&cmd=resource&f=console.png&s=F6cNS3VGeqVgIya7Kn6Y HTTP/1.1[0m" 304 -
+2025-08-28 10:54:59,568 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:59] "[35m[1mGET /dashboard HTTP/1.1[0m" 500 -
+2025-08-28 10:54:59,583 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:59] "[36mGET /dashboard?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-08-28 10:54:59,584 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:59] "[36mGET /dashboard?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-08-28 10:54:59,607 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:59] "[36mGET /dashboard?__debugger__=yes&cmd=resource&f=console.png&s=F6cNS3VGeqVgIya7Kn6Y HTTP/1.1[0m" 304 -
+2025-08-28 10:54:59,947 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:59] "[35m[1mGET /dashboard HTTP/1.1[0m" 500 -
+2025-08-28 10:54:59,963 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:59] "[36mGET /dashboard?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-08-28 10:54:59,964 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:59] "[36mGET /dashboard?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-08-28 10:54:59,990 - INFO - 127.0.0.1 - - [28/Aug/2025 10:54:59] "[36mGET /dashboard?__debugger__=yes&cmd=resource&f=console.png&s=F6cNS3VGeqVgIya7Kn6Y HTTP/1.1[0m" 304 -
+2025-08-28 10:55:01,549 - INFO -  * Detected change in '/Users/nael/Documents/python-simple-local-user-network/secure_auth_complete.py', reloading
+2025-08-28 10:55:01,592 - INFO -  * Restarting with stat
+2025-08-28 10:55:02,224 - WARNING -  * Debugger is active!
+2025-08-28 10:55:02,236 - INFO -  * Debugger PIN: 143-448-994
+2025-08-28 10:55:07,262 - INFO -  * Detected change in '/Users/nael/Documents/python-simple-local-user-network/web_auth.py', reloading
+2025-08-28 10:55:07,326 - INFO -  * Restarting with stat
+2025-08-28 10:55:07,938 - WARNING -  * Debugger is active!
+2025-08-28 10:55:08,001 - INFO -  * Debugger PIN: 143-448-994
+2025-08-28 10:55:23,640 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.7.250:5001
+2025-08-28 10:55:23,640 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-28 10:55:23,641 - INFO -  * Restarting with stat
+2025-08-28 10:55:23,982 - WARNING -  * Debugger is active!
+2025-08-28 10:55:23,990 - INFO -  * Debugger PIN: 143-448-994
+2025-08-28 10:55:31,813 - INFO - 127.0.0.1 - - [28/Aug/2025 10:55:31] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-08-28 10:55:31,969 - INFO - 127.0.0.1 - - [28/Aug/2025 10:55:31] "GET / HTTP/1.1" 200 -
+2025-08-28 10:55:32,064 - INFO - 127.0.0.1 - - [28/Aug/2025 10:55:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 10:55:37,305 - INFO - 127.0.0.1 - - [28/Aug/2025 10:55:37] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-08-28 10:55:37,314 - INFO - 127.0.0.1 - - [28/Aug/2025 10:55:37] "GET / HTTP/1.1" 200 -
+2025-08-28 10:55:37,344 - INFO - 127.0.0.1 - - [28/Aug/2025 10:55:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 10:55:46,734 - INFO - 127.0.0.1 - - [28/Aug/2025 10:55:46] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-08-28 10:55:46,741 - INFO - 127.0.0.1 - - [28/Aug/2025 10:55:46] "GET /login_2fa HTTP/1.1" 200 -
+2025-08-28 10:55:46,778 - INFO - 127.0.0.1 - - [28/Aug/2025 10:55:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 10:55:46,780 - INFO - 127.0.0.1 - - [28/Aug/2025 10:55:46] "[36mGET /static/js/2fa.js HTTP/1.1[0m" 304 -
+2025-08-28 10:55:55,803 - INFO - 127.0.0.1 - - [28/Aug/2025 10:55:55] "POST /verify_2fa HTTP/1.1" 200 -
+2025-08-28 10:55:55,819 - INFO - 127.0.0.1 - - [28/Aug/2025 10:55:55] "GET /dashboard HTTP/1.1" 200 -
+2025-08-28 10:55:55,855 - INFO - 127.0.0.1 - - [28/Aug/2025 10:55:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 10:55:55,859 - INFO - 127.0.0.1 - - [28/Aug/2025 10:55:55] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-08-28 10:56:32,384 - INFO - 127.0.0.1 - - [28/Aug/2025 10:56:32] "POST /create_user HTTP/1.1" 200 -
+2025-08-28 10:57:16,424 - INFO -  * Detected change in '/Users/nael/Documents/python-simple-local-user-network/web_auth.py', reloading
+2025-08-28 10:57:16,467 - INFO -  * Restarting with stat
+2025-08-28 10:57:18,022 - WARNING -  * Debugger is active!
+2025-08-28 10:57:18,033 - INFO -  * Debugger PIN: 143-448-994
+2025-08-28 10:57:27,126 - INFO -  * Detected change in '/Users/nael/Documents/python-simple-local-user-network/email_sender.py', reloading
+2025-08-28 10:57:27,166 - INFO -  * Restarting with stat
+2025-08-28 10:57:27,599 - WARNING -  * Debugger is active!
+2025-08-28 10:57:27,609 - INFO -  * Debugger PIN: 143-448-994
+2025-08-28 10:58:57,820 - INFO - 127.0.0.1 - - [28/Aug/2025 10:58:57] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-08-28 10:58:57,845 - INFO - 127.0.0.1 - - [28/Aug/2025 10:58:57] "GET / HTTP/1.1" 200 -
+2025-08-28 10:58:57,901 - INFO - 127.0.0.1 - - [28/Aug/2025 10:58:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 10:59:45,790 - INFO - 127.0.0.1 - - [28/Aug/2025 10:59:45] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-08-28 10:59:45,826 - INFO - 127.0.0.1 - - [28/Aug/2025 10:59:45] "GET /login_2fa HTTP/1.1" 200 -
+2025-08-28 10:59:45,867 - INFO - 127.0.0.1 - - [28/Aug/2025 10:59:45] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 10:59:45,869 - INFO - 127.0.0.1 - - [28/Aug/2025 10:59:45] "[36mGET /static/js/2fa.js HTTP/1.1[0m" 304 -
+2025-08-28 10:59:53,196 - INFO -  * Detected change in '/Users/nael/Documents/python-simple-local-user-network/web_auth.py', reloading
+2025-08-28 10:59:53,235 - INFO -  * Restarting with stat
+2025-08-28 10:59:56,013 - WARNING -  * Debugger is active!
+2025-08-28 10:59:56,021 - INFO -  * Debugger PIN: 143-448-994
+2025-08-28 10:59:56,140 - INFO - 127.0.0.1 - - [28/Aug/2025 10:59:56] "[31m[1mPOST /verify_2fa HTTP/1.1[0m" 400 -
+2025-08-28 10:59:58,957 - INFO - 127.0.0.1 - - [28/Aug/2025 10:59:58] "[31m[1mPOST /verify_2fa HTTP/1.1[0m" 400 -
+2025-08-28 11:00:17,139 - INFO - 127.0.0.1 - - [28/Aug/2025 11:00:17] "[31m[1mPOST /verify_2fa HTTP/1.1[0m" 400 -
+2025-08-28 11:00:21,805 - INFO - 127.0.0.1 - - [28/Aug/2025 11:00:21] "POST /send_2fa HTTP/1.1" 200 -
+2025-08-28 11:00:22,018 - INFO - 127.0.0.1 - - [28/Aug/2025 11:00:22] "POST /send_2fa HTTP/1.1" 200 -
+2025-08-28 11:00:23,105 - INFO - 127.0.0.1 - - [28/Aug/2025 11:00:23] "POST /send_2fa HTTP/1.1" 200 -
+2025-08-28 11:00:36,939 - INFO - 127.0.0.1 - - [28/Aug/2025 11:00:36] "POST /verify_2fa HTTP/1.1" 200 -
+2025-08-28 11:00:36,998 - INFO - 127.0.0.1 - - [28/Aug/2025 11:00:36] "GET /dashboard HTTP/1.1" 200 -
+2025-08-28 11:00:37,125 - INFO - 127.0.0.1 - - [28/Aug/2025 11:00:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 11:00:37,126 - INFO - 127.0.0.1 - - [28/Aug/2025 11:00:37] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-08-28 11:00:58,984 - INFO - 127.0.0.1 - - [28/Aug/2025 11:00:58] "GET /admin/users HTTP/1.1" 200 -
+2025-08-28 11:00:59,028 - INFO - 127.0.0.1 - - [28/Aug/2025 11:00:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 11:01:36,568 - INFO - 127.0.0.1 - - [28/Aug/2025 11:01:36] "GET /dashboard HTTP/1.1" 200 -
+2025-08-28 11:01:36,612 - INFO - 127.0.0.1 - - [28/Aug/2025 11:01:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 11:01:36,616 - INFO - 127.0.0.1 - - [28/Aug/2025 11:01:36] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-08-28 11:01:37,501 - INFO -  * Detected change in '/Users/nael/Documents/python-simple-local-user-network/web_auth.py', reloading
+2025-08-28 11:01:37,562 - INFO -  * Restarting with stat
+2025-08-28 11:01:41,298 - WARNING -  * Debugger is active!
+2025-08-28 11:01:41,306 - INFO -  * Debugger PIN: 143-448-994
+2025-08-28 11:01:41,410 - INFO - 127.0.0.1 - - [28/Aug/2025 11:01:41] "[32mGET /editor?file=notes.md HTTP/1.1[0m" 302 -
+2025-08-28 11:01:41,422 - INFO - 127.0.0.1 - - [28/Aug/2025 11:01:41] "GET / HTTP/1.1" 200 -
+2025-08-28 11:01:41,476 - INFO - 127.0.0.1 - - [28/Aug/2025 11:01:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 11:02:10,512 - INFO -  * Detected change in '/Users/nael/Documents/python-simple-local-user-network/web_auth.py', reloading
+2025-08-28 11:02:10,559 - INFO -  * Restarting with stat
+2025-08-28 11:02:10,966 - WARNING -  * Debugger is active!
+2025-08-28 11:02:10,973 - INFO -  * Debugger PIN: 143-448-994
+2025-08-28 11:02:15,368 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:15] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-08-28 11:02:15,384 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:15] "GET /login_2fa HTTP/1.1" 200 -
+2025-08-28 11:02:15,435 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 11:02:15,436 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:15] "[36mGET /static/js/2fa.js HTTP/1.1[0m" 304 -
+2025-08-28 11:02:23,856 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:23] "POST /verify_2fa HTTP/1.1" 200 -
+2025-08-28 11:02:23,873 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:23] "GET /dashboard HTTP/1.1" 200 -
+2025-08-28 11:02:23,919 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 11:02:23,923 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:23] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-08-28 11:02:26,696 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:26] "GET /editor?file=notes.md HTTP/1.1" 200 -
+2025-08-28 11:02:26,738 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 11:02:26,741 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:26] "GET /static/js/editor.js HTTP/1.1" 200 -
+2025-08-28 11:02:26,775 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:26] "GET /load_file/notes.md HTTP/1.1" 200 -
+2025-08-28 11:02:31,415 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:31] "GET /dashboard HTTP/1.1" 200 -
+2025-08-28 11:02:31,453 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 11:02:31,457 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:31] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-08-28 11:02:33,780 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:33] "POST /delete_file HTTP/1.1" 200 -
+2025-08-28 11:02:34,915 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:34] "GET /dashboard HTTP/1.1" 200 -
+2025-08-28 11:02:34,943 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 11:02:34,945 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:34] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-08-28 11:02:36,078 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:36] "GET /editor?file=project.py HTTP/1.1" 200 -
+2025-08-28 11:02:36,114 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 11:02:36,116 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:36] "[36mGET /static/js/editor.js HTTP/1.1[0m" 304 -
+2025-08-28 11:02:36,146 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:36] "GET /load_file/project.py HTTP/1.1" 200 -
+2025-08-28 11:02:40,733 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:40] "GET /dashboard HTTP/1.1" 200 -
+2025-08-28 11:02:40,785 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 11:02:40,791 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:40] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-08-28 11:02:42,818 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:42] "POST /delete_file HTTP/1.1" 200 -
+2025-08-28 11:02:43,931 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:43] "GET /dashboard HTTP/1.1" 200 -
+2025-08-28 11:02:43,951 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 11:02:43,954 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:43] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-08-28 11:02:45,253 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:45] "GET /editor?file=document1.txt HTTP/1.1" 200 -
+2025-08-28 11:02:45,292 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:45] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 11:02:45,294 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:45] "[36mGET /static/js/editor.js HTTP/1.1[0m" 304 -
+2025-08-28 11:02:45,327 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:45] "GET /load_file/document1.txt HTTP/1.1" 200 -
+2025-08-28 11:02:47,564 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:47] "GET /dashboard HTTP/1.1" 200 -
+2025-08-28 11:02:47,610 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 11:02:47,621 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:47] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-08-28 11:02:49,336 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:49] "POST /delete_file HTTP/1.1" 200 -
+2025-08-28 11:02:50,502 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:50] "GET /dashboard HTTP/1.1" 200 -
+2025-08-28 11:02:50,520 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 11:02:50,522 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:50] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-08-28 11:02:51,517 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:51] "GET /editor?file=boom.txt HTTP/1.1" 200 -
+2025-08-28 11:02:51,551 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 11:02:51,554 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:51] "[36mGET /static/js/editor.js HTTP/1.1[0m" 304 -
+2025-08-28 11:02:51,601 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:51] "GET /load_file/boom.txt HTTP/1.1" 200 -
+2025-08-28 11:02:54,365 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:54] "GET /dashboard HTTP/1.1" 200 -
+2025-08-28 11:02:54,399 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-08-28 11:02:54,408 - INFO - 127.0.0.1 - - [28/Aug/2025 11:02:54] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-08-28 11:06:22,038 - INFO -  * Detected change in '/Users/nael/Documents/python-simple-local-user-network/py/web_auth.py', reloading
+2025-08-28 11:06:22,087 - INFO -  * Restarting with stat

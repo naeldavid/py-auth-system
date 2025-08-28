@@ -2,10 +2,10 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 import datetime
 import time
 import os
-from secure_auth_complete import SecureUserDatabase, SecurityConfig
+from py.secure_auth_complete import SecureUserDatabase, SecurityConfig
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24)
+app.secret_key = 'secure-auth-system-secret-key-2024'  # Use fixed key for persistent sessions
 db = SecureUserDatabase()
 
 @app.route('/')
@@ -24,8 +24,42 @@ def login():
     password = request.form['password']
     security_pin = request.form['security_pin']
     
-    success, token, message = db.authenticate_user(username, password, security_pin)
+    # Validate credentials first
+    if username not in db.users:
+        flash('Invalid credentials', 'error')
+        return redirect(url_for('index'))
     
+    user_data = db.get_user_data(username)
+    salt = user_data['salt']
+    
+    if (db._hash_password_with_salt(password, salt) != user_data['password_hash'] or
+        db._hash_password_with_salt(security_pin, salt) != user_data['security_pin_hash']):
+        flash('Invalid credentials', 'error')
+        return redirect(url_for('index'))
+    
+    # If MFA enabled, send 2FA code
+    if user_data.get('mfa_enabled', False):
+        import secrets
+        from py.email_sender import SecureEmailSender
+        
+        # Generate cryptographically secure 6-digit code
+        code = str(secrets.randbelow(900000) + 100000)
+        
+        if not hasattr(db, 'temp_codes'):
+            db.temp_codes = {}
+        db.temp_codes[username] = {'code': code, 'timestamp': time.time()}
+        
+        email_sender = SecureEmailSender()
+        success = email_sender.send_2fa_code(user_data['email'], code, username)
+        
+        if not success:
+            print(f"Email failed: 2FA Code for {username}: {code}")
+        
+        session['pending_2fa'] = username
+        return redirect(url_for('login_2fa'))
+    
+    # No MFA - direct login
+    success, token, message = db.authenticate_user(username, password, security_pin)
     if success:
         session['session_token'] = token
         session['username'] = username
@@ -186,7 +220,11 @@ def create_user():
     username = request.json.get('username')
     email = request.json.get('email')
     password = request.json.get('password')
+    pin = request.json.get('pin')
     role = request.json.get('role', 'user')
+    
+    if not username or not email or not password or not pin:
+        return jsonify({'error': 'Username, email, password, and PIN are required'}), 400
     
     if username in db.users:
         return jsonify({'error': 'User already exists'}), 400
@@ -196,17 +234,49 @@ def create_user():
     db.users[username] = {
         'password_hash': db._hash_password_with_salt(password, salt),
         'salt': salt,
-        'security_pin_hash': db._hash_password_with_salt('000', salt),
+        'security_pin_hash': db._hash_password_with_salt(pin, salt),
         'email': email,
         'role': role,
         'mfa_enabled': True,
-        'created_at': datetime.now().isoformat(),
+        'created_at': datetime.datetime.now().isoformat(),
         'last_login': None,
         'files': []
     }
     db._save_users(db.users)
     
-    return jsonify({'success': 'User created successfully'})
+    return jsonify({'success': 'User created successfully with 2FA enabled'})
+
+@app.route('/delete_user', methods=['POST'])
+def delete_user():
+    if 'session_token' not in session:
+        return jsonify({'error': 'Unauthorized'}), 401
+    
+    valid, current_user = db.validate_session(session['session_token'])
+    if not valid or current_user != 'nael':
+        return jsonify({'error': 'Admin access required'}), 403
+    
+    username = request.json.get('username')
+    
+    if not username:
+        return jsonify({'error': 'Username is required'}), 400
+    
+    if username == 'nael':
+        return jsonify({'error': 'Cannot delete admin user'}), 400
+    
+    if username not in db.users:
+        return jsonify({'error': 'User not found'}), 404
+    
+    # Delete user files
+    import shutil
+    user_dir = f'user_files/{username}'
+    if os.path.exists(user_dir):
+        shutil.rmtree(user_dir)
+    
+    # Remove user from database
+    del db.users[username]
+    db._save_users(db.users)
+    
+    return jsonify({'success': 'User deleted successfully'})
 
 @app.route('/send_2fa', methods=['POST'])
 def send_2fa():
@@ -214,10 +284,11 @@ def send_2fa():
     if username not in db.users:
         return jsonify({'error': 'User not found'}), 404
     
-    import random
-    from email_sender import SecureEmailSender
+    import secrets
+    from py.email_sender import SecureEmailSender
     
-    code = str(random.randint(100000, 999999))
+    # Generate cryptographically secure 6-digit code
+    code = str(secrets.randbelow(900000) + 100000)
     
     if not hasattr(db, 'temp_codes'):
         db.temp_codes = {}
@@ -235,13 +306,28 @@ def send_2fa():
         print(f"Email failed: 2FA Code for {username}: {code}")
         return jsonify({'success': 'Verification code sent (check console for demo)'})
 
+@app.route('/login_2fa')
+def login_2fa():
+    if 'pending_2fa' not in session:
+        return redirect(url_for('index'))
+    return render_template('login_2fa.html', username=session['pending_2fa'])
+
 @app.route('/verify_2fa', methods=['POST'])
 def verify_2fa():
     username = request.json.get('username')
     code = request.json.get('code')
     
+    # Clean up expired codes first
+    if hasattr(db, 'temp_codes'):
+        expired_users = []
+        for user, data in db.temp_codes.items():
+            if time.time() - data['timestamp'] > 300:  # 5 minutes
+                expired_users.append(user)
+        for user in expired_users:
+            del db.temp_codes[user]
+    
     if not hasattr(db, 'temp_codes') or username not in db.temp_codes:
-        return jsonify({'error': 'No verification code found'}), 400
+        return jsonify({'error': 'No verification code found or expired'}), 400
     
     stored_data = db.temp_codes[username]
     if time.time() - stored_data['timestamp'] > 300:  # 5 minutes expiry
@@ -249,7 +335,21 @@ def verify_2fa():
         return jsonify({'error': 'Verification code expired'}), 400
     
     if code == stored_data['code']:
+        # Immediately dispose of the code after successful verification
         del db.temp_codes[username]
+        
+        # Create session after successful 2FA
+        token = db._generate_session_token()
+        db.active_sessions[token] = {
+            'username': username,
+            'created_at': time.time(),
+            'last_activity': time.time()
+        }
+        
+        session['session_token'] = token
+        session['username'] = username
+        session.pop('pending_2fa', None)
+        
         return jsonify({'success': 'Verification successful'})
     
     return jsonify({'error': 'Invalid verification code'}), 400
@@ -270,20 +370,15 @@ def api_user_info(username):
             'email': user_data['email'],
             'role': user_data['role'],
             'files': user_data['files'],
-            'last_login': user_data.get('last_login'),
-            'credentials': {
-                'username': username,
-                'password': 'password',
-                'pin': '000'
-            }
+            'last_login': user_data.get('last_login')
         })
     return jsonify({'error': 'User not found'}), 404
 
 if __name__ == '__main__':
     print("\n" + "="*50)
     print("🚀 Enterprise Authentication Server Starting...")
-    print("📍 Server URL: http://localhost:5000")
-    print("📍 Network URL: http://0.0.0.0:5000")
+    print("📍 Server URL: http://localhost:5001")
+    print("📍 Network URL: http://0.0.0.0:5001")
     print("🔒 Secure Login Required")
     print("="*50 + "\n")
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5001)

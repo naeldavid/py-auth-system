@@ -3,16 +3,24 @@
     "password_hash": "709a81e05a986534f8ef7e1697818e673d04a95a82aa795079d6b6dda50dcc5c",
     "salt": "191b247c3683a78011b91936d8ae0667a03542c2bb2d1cc9d4d67be6924013a7",
     "security_pin_hash": "7900b7fce0e67014dc22dc10776d160fc9c3c22df200cf9f33f1e61856079215",
-    "email": "nael@example.com",
+    "email": "nael@famille-david.com",
     "role": "admin",
     "mfa_enabled": true,
     "created_at": "2025-08-27T17:04:31.941242",
     "last_login": "2025-08-27T17:11:18.208525",
     "files": [
-      "document1.txt",
-      "project.py",
-      "notes.md",
       "boom.txt"
     ]
+  },
+  "test_user": {
+    "password_hash": "6146fb484a2d9ef641e34096bb9590552f042b7b3e55d3722285316ca016d4c9",
+    "salt": "e6baab6916fb6c80793bbe6be3d02d286bc23a91479d9d7a43a6878178dbec7e",
+    "security_pin_hash": "b7f7e5a1e43ada3c0a56f3b3b9b29a10b4925ee42681769b9bcd06114638b6dc",
+    "email": "nael.dvd1@gmail.com",
+    "role": "user",
+    "mfa_enabled": true,
+    "created_at": "2025-08-28T10:56:32.383810",
+    "last_login": null,
+    "files": []
   }
 }

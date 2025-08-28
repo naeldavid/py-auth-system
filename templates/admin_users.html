@@ -24,6 +24,7 @@
                                 <th>Last Login</th>
                                 <th>Files</th>
                                 <th>Created</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,10 +56,48 @@
                                 <td>
                                     <small>{{ user_data.created_at[:10] if user_data.created_at else 'Unknown' }}</small>
                                 </td>
+                                <td>
+                                    {% if username != 'nael' %}
+                                        <button class="btn btn-danger btn-sm" onclick="deleteUser('{{ username }}')">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    {% endif %}
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>
                     </table>
+                </div>
+                
+                <div class="mt-4">
+                    <h6><i class="fas fa-user-plus"></i> Create New User</h6>
+                    <form id="createUserForm" class="mb-4">
+                        <div class="row mb-2">
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="newUsername" placeholder="Username" required>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="email" class="form-control" id="newEmail" placeholder="Email" required>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="password" class="form-control" id="newPassword" placeholder="Password" required>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="password" class="form-control" id="newPin" placeholder="Security PIN" maxlength="6" required>
+                            </div>
+                            <div class="col-md-2">
+                                <select class="form-control" id="newRole">
+                                    <option value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="submit" class="btn btn-success w-100">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 
                 <div class="mt-4">
@@ -102,4 +141,50 @@
         </div>
     </div>
 </div>
+
+<script>
+document.getElementById('createUserForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const username = document.getElementById('newUsername').value;
+    const email = document.getElementById('newEmail').value;
+    const password = document.getElementById('newPassword').value;
+    const pin = document.getElementById('newPin').value;
+    const role = document.getElementById('newRole').value;
+    
+    fetch('/create_user', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({username, email, password, pin, role})
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('User created successfully with 2FA enabled!');
+            location.reload();
+        } else {
+            alert('Error: ' + data.error);
+        }
+    });
+});
+
+function deleteUser(username) {
+    if (confirm(`Are you sure you want to delete user "${username}"? This action cannot be undone.`)) {
+        fetch('/delete_user', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({username: username})
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('User deleted successfully!');
+                location.reload();
+            } else {
+                alert('Error: ' + data.error);
+            }
+        });
+    }
+}
+</script>
 {% endblock %}

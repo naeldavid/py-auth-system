@@ -16,6 +16,9 @@ document.getElementById('twoFactorForm').addEventListener('submit', function(e) 
         } else {
             alert('Error: ' + data.error);
         }
+    })
+    .catch(error => {
+        alert('Network error occurred');
     });
 });
 
