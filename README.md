@@ -1,6 +1,6 @@
-# Python Authentication System
+# py-auth-system
 
-Enterprise-grade authentication system with advanced security features, email 2FA, and comprehensive user management.
+Enterprise-grade Python authentication system with advanced security features, email 2FA, and comprehensive user management.
 
 ## 🚀 Features
 
@@ -36,13 +36,13 @@ Enterprise-grade authentication system with advanced security features, email 2F
 ### Web Version (Recommended)
 ```bash
 pip install Flask==2.3.3
-python web_auth.py
+python main.py
 ```
 Then visit: http://localhost:5001
 
 ### CLI Version
 ```bash
-python secure_auth_complete.py
+python py/secure_auth_complete.py
 ```
 
 ## 🔑 Default Admin Account
@@ -53,22 +53,27 @@ python secure_auth_complete.py
 
 ## 📁 Project Structure
 ```
-├── secure_auth_complete.py  # Core authentication system
-├── web_auth.py             # Flask web application
-├── email_sender.py         # Email 2FA functionality
-├── templates/              # HTML templates
-│   ├── base.html          # Base template
-│   ├── login.html         # Login page
-│   ├── login_2fa.html     # 2FA verification
-│   ├── dashboard.html     # User dashboard
-│   ├── admin_users.html   # Admin panel
-│   └── editor.html        # Text editor
-├── static/                # CSS/JS assets
-│   ├── css/style.css      # Styling
-│   └── js/               # JavaScript files
-├── user_files/           # User file storage
-├── secure_users.json     # User database
-└── security_audit.log    # Security events
+py-auth-system/
+├── main.py                    # Main launcher
+├── py/                        # Python modules
+│   ├── __init__.py           # Package init
+│   ├── secure_auth_complete.py  # Core authentication
+│   ├── web_auth.py           # Flask web app
+│   └── email_sender.py       # Email 2FA
+├── templates/                # HTML templates
+│   ├── base.html            # Base template
+│   ├── login.html           # Login page
+│   ├── login_2fa.html       # 2FA verification
+│   ├── dashboard.html       # User dashboard
+│   ├── admin_users.html     # Admin panel
+│   └── editor.html          # Text editor
+├── static/                  # CSS/JS assets
+│   ├── css/style.css        # Styling
+│   └── js/                  # JavaScript files
+├── user_files/              # User file storage
+├── secure_users.json        # User database
+├── security_audit.log       # Security events
+└── requirements.txt         # Dependencies
 ```
 
 ## 🔒 Security Features
@@ -119,13 +124,13 @@ python secure_auth_complete.py
 ## ⚙️ Configuration
 
 ### Email Setup
-Update `email_sender.py` with your Gmail credentials:
+Update `py/email_sender.py` with your Gmail credentials:
 1. Enable 2-Step Verification in Google Account
 2. Generate App Password for Mail
 3. Update encrypted credentials in the file
 
 ### Security Settings
-Modify `SecurityConfig` in `secure_auth_complete.py`:
+Modify `SecurityConfig` in `py/secure_auth_complete.py`:
 - `PASSWORD_MIN_LENGTH` - Minimum password length
 - `MAX_LOGIN_ATTEMPTS` - Failed attempts before lockout
 - `LOCKOUT_DURATION` - Account lockout time (seconds)
@@ -148,6 +153,20 @@ Modify `SecurityConfig` in `secure_auth_complete.py`:
 - **Security Monitoring** through audit logs
 - **Role Management** for access control
 
+## 🎮 Stream Deck Integration
+
+Launch directly from Stream Deck with:
+```bash
+python3 /Users/nael/Documents/py-auth-system/main.py
+```
+
+## 📦 Installation
+
+1. **Clone the repository**
+2. **Install dependencies**: `pip install -r requirements.txt`
+3. **Configure email** in `py/email_sender.py`
+4. **Run the system**: `python main.py`
+
 ---
 
-**© 2024 Python Authentication System - Enterprise Security Made Simple**
+**© 2024 py-auth-system - Enterprise Security Made Simple**
