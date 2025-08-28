@@ -4,7 +4,7 @@ import time
 import os
 from py.secure_auth_complete import SecureUserDatabase, SecurityConfig
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../templates', static_folder='../static')
 app.secret_key = 'secure-auth-system-secret-key-2024'  # Use fixed key for persistent sessions
 db = SecureUserDatabase("data/secure_users.json")
 
