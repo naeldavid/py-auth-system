@@ -46,9 +46,9 @@ python py/secure_auth_complete.py
 ```
 
 ## 🔑 Default Admin Account
-- Username: `nael`
-- Password: `password`
-- Security PIN: `000`
+- Username: `admin`
+- Password: `root`
+- Security PIN: `9873`
 - Role: `admin`
 
 ## 📁 Project Structure

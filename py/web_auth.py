@@ -126,7 +126,7 @@ def admin_users():
         return redirect(url_for('index'))
     
     valid, username = db.validate_session(session['session_token'])
-    if not valid or username != 'nael':
+    if not valid or username != 'admin':
         flash('Admin access required', 'error')
         return redirect(url_for('dashboard'))
     
@@ -214,7 +214,7 @@ def create_user():
         return jsonify({'error': 'Unauthorized'}), 401
     
     valid, current_user = db.validate_session(session['session_token'])
-    if not valid or current_user != 'nael':
+    if not valid or current_user != 'admin':
         return jsonify({'error': 'Admin access required'}), 403
     
     username = request.json.get('username')
@@ -252,7 +252,7 @@ def delete_user():
         return jsonify({'error': 'Unauthorized'}), 401
     
     valid, current_user = db.validate_session(session['session_token'])
-    if not valid or current_user != 'nael':
+    if not valid or current_user != 'admin':
         return jsonify({'error': 'Admin access required'}), 403
     
     username = request.json.get('username')
@@ -260,7 +260,7 @@ def delete_user():
     if not username:
         return jsonify({'error': 'Username is required'}), 400
     
-    if username == 'nael':
+    if username == 'admin':
         return jsonify({'error': 'Cannot delete admin user'}), 400
     
     if username not in db.users:

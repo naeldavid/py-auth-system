@@ -85,11 +85,11 @@ class SecureUserDatabase:
     def _create_default_users(self) -> Dict:
         salt = secrets.token_hex(SecurityConfig.SALT_LENGTH)
         default_users = {
-            "nael": {
-                "password_hash": self._hash_password_with_salt("password", salt),
+            "admin": {
+                "password_hash": self._hash_password_with_salt("root", salt),
                 "salt": salt,
-                "security_pin_hash": self._hash_password_with_salt("000", salt),
-                "email": "nael@example.com",
+                "security_pin_hash": self._hash_password_with_salt("9873", salt),
+                "email": "admin@example.com",
                 "role": "admin",
                 "mfa_enabled": True,
                 "created_at": datetime.now().isoformat(),
