@@ -6,7 +6,7 @@ from py.secure_auth_complete import SecureUserDatabase, SecurityConfig
 
 app = Flask(__name__)
 app.secret_key = 'secure-auth-system-secret-key-2024'  # Use fixed key for persistent sessions
-db = SecureUserDatabase()
+db = SecureUserDatabase("data/secure_users.json")
 
 @app.route('/')
 def index():

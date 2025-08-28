@@ -51,7 +51,7 @@ class RBACSystem:
 
 # Audit Logger
 class SecurityAuditLogger:
-    def __init__(self, log_file: str = "security_audit.log"):
+    def __init__(self, log_file: str = "logs/security_audit.log"):
         self.log_file = log_file
         logging.basicConfig(filename=log_file, level=logging.INFO,
                           format='%(asctime)s - %(levelname)s - %(message)s')
@@ -68,7 +68,7 @@ class SecurityAuditLogger:
 
 # Main Database and Authentication System
 class SecureUserDatabase:
-    def __init__(self, db_file: str = "secure_users.json"):
+    def __init__(self, db_file: str = "data/secure_users.json"):
         self.db_file = db_file
         self.users = self._load_users()
         self.failed_attempts = {}
