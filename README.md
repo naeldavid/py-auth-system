@@ -48,7 +48,7 @@ Military-grade Python authentication system with advanced security features, bio
 pip install Flask==2.3.3
 python main.py
 ```
-Then visit: http://localhost:5001
+Then visit: http://localhost:8080
 
 ## 🔑 Default Admin Account
 - Username: `admin`
@@ -201,7 +201,7 @@ python main.py
 ### Docker Deployment
 ```bash
 docker build -f docker/Dockerfile -t py-auth-system .
-docker run -p 5001:5001 py-auth-system
+docker run -p 8080:8080 py-auth-system
 ```
 
 ### Production Setup

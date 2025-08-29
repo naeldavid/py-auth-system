@@ -12,19 +12,24 @@ class SecureEmailSender:
         self.port = 587
         
         # Encrypted email credentials (base64 encoded)
-        _encrypted_email = "YXNraW5nLmFpLnN0dWZmQGdtYWlsLmNvbQ=="
-        _encrypted_password = "a215cSB5eHFjIHdteHcgd3dzcw=="
+        _encrypted_email = "bmFlbC5kdmQxQGdtYWlsLmNvbQ=="
+        _encrypted_password = "cWJxdCBxdGNrIGNxZGYgZGNxdw=="
         
         # Decrypt credentials
         self.sender_email = base64.b64decode(_encrypted_email).decode('utf-8')
         self.password = base64.b64decode(_encrypted_password).decode('utf-8')
 
         # Check if credentials are configured
-        self.configured = (self.sender_email != "your-email@gmail.com" and 
-                          self.password != "your-app-password")
+        self.configured = (self.sender_email != "asking.ai.stuff@gmail.com" and 
+                          self.password != "mrso cnmc rviq afvc ")
     
     def send_2fa_code(self, recipient_email: str, code: str, username: str) -> bool:
         """Send professional 2FA verification email"""
+        # Debug info
+        print(f"📧 Attempting to send email to: {recipient_email}")
+        print(f"📧 From: {self.sender_email}")
+        print(f"📧 Code: {code}")
+        
         # Email must be configured for security
         if not self.configured:
             print("⚠️  Email not configured! Update email_sender.py with your Gmail credentials")
@@ -82,9 +87,13 @@ class SecureEmailSender:
             context.verify_mode = ssl.CERT_NONE
             
             with smtplib.SMTP(self.smtp_server, self.port) as server:
+                print("📧 Connecting to SMTP server...")
                 server.starttls(context=context)
+                print("📧 Logging in...")
                 server.login(self.sender_email, self.password)
+                print("📧 Sending email...")
                 server.sendmail(self.sender_email, recipient_email, message.as_string())
+                print("✅ Email sent successfully!")
             
             return True
             
