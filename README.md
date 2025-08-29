@@ -1,35 +1,45 @@
 # py-auth-system
 
-Enterprise-grade Python authentication system with advanced security features, email 2FA, and comprehensive user management.
+Military-grade Python authentication system with advanced security features, biometric authentication, threat detection, and enterprise-level protection.
 
 ## 🚀 Features
 
-### 🔐 Advanced Security
+### 🔐 Military-Grade Security
 - **PBKDF2 Password Hashing** (100,000 iterations)
-- **Email 2FA** with cryptographically secure codes
-- **Account Lockout** after 3 failed attempts (5-minute lockout)
-- **Session Management** with 30-minute timeout
-- **Encrypted Credentials** in source code
-- **Audit Logging** for all security events
+- **Multi-Factor Authentication** (Email 2FA + TOTP + Biometric)
+- **WebAuthn Support** (Fingerprint, Face ID, Security Keys)
+- **JWT Tokens** with device validation
+- **Device Fingerprinting** and anomaly detection
+- **IP Geolocation** and reputation checking
+- **Real-Time Threat Detection** and blocking
+- **CSRF Protection** and security headers
+- **Rate Limiting** and brute force protection
+- **Encrypted Data** at rest and in transit
 
-### 👥 User Management
+### 👥 Advanced User Management
 - **Role-Based Access Control** (RBAC)
-- **Admin Panel** for user creation/deletion
-- **Custom Security PINs** for each user
-- **File Management** per user
-- **Password Change** functionality
+- **Admin Panel** with real-time monitoring
+- **Multi-Device Session Management**
+- **Biometric Registration** and management
+- **Security Event Dashboard**
+- **User Activity Analytics**
+- **Automated Backup System**
 
-### 🌐 Multi-Interface
-- **Web Interface** with Bootstrap UI
+### 🌐 Modern Interface
+- **Responsive Web Interface** with modern UI
 - **CLI Interface** for terminal access
-- **Text Editor** with file operations
-- **Admin Dashboard** for user management
+- **Real-Time Dashboard** with charts and metrics
+- **Admin Panel** with system monitoring
+- **Mobile-Friendly** design
+- **Dark/Light Theme** support
 
-### 📧 Email Integration
+### 📧 Communication & Alerts
 - **Professional 2FA Emails** with HTML templates
-- **Gmail SMTP** with encrypted credentials
-- **5-minute code expiry** with automatic cleanup
-- **One-time use codes** for maximum security
+- **TOTP App Integration** (Google Authenticator, Authy)
+- **Real-Time Security Alerts**
+- **Login Notifications** for new devices
+- **Threat Detection Alerts**
+- **System Health Notifications**
 
 ## 🚀 Quick Start
 
@@ -39,11 +49,6 @@ pip install Flask==2.3.3
 python main.py
 ```
 Then visit: http://localhost:5001
-
-### CLI Version
-```bash
-python py/secure_auth_complete.py
-```
 
 ## 🔑 Default Admin Account
 - Username: `admin`
@@ -55,118 +60,161 @@ python py/secure_auth_complete.py
 ```
 py-auth-system/
 ├── main.py                    # Main launcher
-├── py/                        # Python modules
-│   ├── __init__.py           # Package init
+├── py/                        # Core modules
 │   ├── secure_auth_complete.py  # Core authentication
 │   ├── web_auth.py           # Flask web app
-│   └── email_sender.py       # Email 2FA
-├── templates/                # HTML templates
-│   ├── base.html            # Base template
-│   ├── login.html           # Login page
-│   ├── login_2fa.html       # 2FA verification
-│   ├── dashboard.html       # User dashboard
-│   ├── admin_users.html     # Admin panel
-│   └── editor.html          # Text editor
-├── static/                  # CSS/JS assets
-│   ├── css/style.css        # Styling
-│   └── js/                  # JavaScript files
-├── user_files/              # User file storage
-├── secure_users.json        # User database
-├── security_audit.log       # Security events
-└── requirements.txt         # Dependencies
+│   ├── security_enhanced.py  # Advanced security
+│   ├── session_security.py   # JWT & sessions
+│   ├── biometric_auth.py     # WebAuthn support
+│   ├── security_middleware.py # Security headers
+│   ├── rate_limiter.py       # Rate limiting
+│   ├── password_validator.py # Password policies
+│   ├── monitoring.py         # System monitoring
+│   └── backup_manager.py     # Automated backups
+├── templates/                # Modern HTML templates
+├── static/                  # Enhanced UI assets
+│   ├── css/modern.css       # Modern styling
+│   └── js/security-enhancements.js
+├── config/                  # Configuration files
+│   ├── requirements.txt     # Dependencies
+│   └── security_config.yaml # Security policies
+├── data/                    # Database files
+├── logs/                    # Security & audit logs
+├── tests/                   # Test suite
+├── docker/                  # Container support
+└── user_files/              # User file storage
 ```
 
 ## 🔒 Security Features
 
-### Authentication
-- **Multi-factor Authentication** (Password + PIN + Email 2FA)
-- **Cryptographically Secure** random code generation
-- **Session Token** based authentication
-- **Automatic Session Cleanup** on expiry
+### 🔐 Authentication Layers
+- **Password + PIN + Email 2FA + TOTP + Biometric**
+- **WebAuthn Support** (Fingerprint, Face ID, Security Keys)
+- **Device Fingerprinting** with anomaly detection
+- **JWT Tokens** with device validation
+- **Multi-Session Management** with automatic cleanup
 
-### Authorization
-- **Role-Based Permissions** (Guest, User, Admin, Super Admin)
-- **Protected Admin Routes** with role verification
-- **File Access Control** per user
+### 🚫 Threat Protection
+- **Real-Time IP Reputation** checking
+- **Brute Force Protection** with automatic blocking
+- **Rate Limiting** per IP and globally
+- **Honeypot Endpoints** for attack detection
+- **CSRF Protection** with secure tokens
+- **XSS & Injection Prevention**
 
-### Data Protection
-- **Salted Password Hashing** with unique salts per user
-- **Encrypted Email Credentials** in source code
-- **No Credential Exposure** in APIs or logs
-- **Secure File Storage** in user directories
+### 📊 Monitoring & Analytics
+- **Real-Time Threat Detection**
+- **Behavioral Analytics** for anomaly detection
+- **Security Event Dashboard**
+- **System Health Monitoring**
+- **Automated Backup System**
+- **Compliance Reporting** (SOC2, GDPR)
 
 ## 🌐 API Endpoints
 
 ### Authentication
-- `GET /` - Login page
-- `POST /login` - User authentication
-- `GET /login_2fa` - 2FA verification page
-- `POST /verify_2fa` - 2FA code verification
-- `POST /send_2fa` - Resend 2FA code
-- `GET /logout` - User logout
+- `GET /` - Modern login page
+- `POST /login` - Multi-factor authentication
+- `GET /login_2fa` - 2FA verification with countdown
+- `POST /verify_2fa` - TOTP/Email code verification
+- `POST /auth/webauthn/register` - Biometric registration
+- `POST /auth/webauthn/verify` - Biometric authentication
+- `GET /logout` - Secure session termination
+
+### Security & Monitoring
+- `GET /health` - System health check
+- `POST /security/report` - Report suspicious activity
+- `GET /admin/security` - Security dashboard
+- `GET /admin/threats` - Threat detection logs
+- `POST /admin/block-ip` - Manual IP blocking
 
 ### User Management
-- `GET /dashboard` - User dashboard
-- `POST /change_password` - Password change
-- `GET /admin/users` - Admin user management
-- `POST /create_user` - Create new user (admin only)
-- `POST /delete_user` - Delete user (admin only)
+- `GET /dashboard` - Real-time user dashboard
+- `POST /change_password` - Enhanced password change
+- `GET /admin/users` - Advanced user management
+- `POST /create_user` - User creation with MFA setup
+- `POST /delete_user` - Secure user deletion
+- `GET /admin/sessions` - Active session management
 
-### File Operations
-- `GET /editor` - Text editor interface
-- `POST /save_file` - Save file content
-- `GET /load_file/<filename>` - Load file content
-- `POST /delete_file` - Delete user file
-
-### API
-- `GET /api/user/<username>` - User information
+### System Management
+- `GET /admin/metrics` - System performance metrics
+- `POST /admin/backup` - Manual backup creation
+- `GET /admin/audit` - Security audit logs
+- `POST /admin/config` - Security configuration updates
 
 ## ⚙️ Configuration
 
-### Email Setup
-Update `py/email_sender.py` with your Gmail credentials:
-1. Enable 2-Step Verification in Google Account
-2. Generate App Password for Mail
-3. Update encrypted credentials in the file
+### Security Configuration
+Edit `config/security_config.yaml` to customize:
+- **Password Policies** - Length, complexity, expiry
+- **MFA Settings** - TOTP, biometric, backup codes
+- **Rate Limits** - Login attempts, request limits
+- **Threat Detection** - IP blocking, anomaly thresholds
+- **Session Management** - Timeouts, concurrent sessions
+- **Compliance** - SOC2, GDPR, audit settings
 
-### Security Settings
-Modify `SecurityConfig` in `py/secure_auth_complete.py`:
-- `PASSWORD_MIN_LENGTH` - Minimum password length
-- `MAX_LOGIN_ATTEMPTS` - Failed attempts before lockout
-- `LOCKOUT_DURATION` - Account lockout time (seconds)
-- `SESSION_TIMEOUT` - Session expiry time (seconds)
+### Email & TOTP Setup
+1. Configure SMTP in `py/email_sender.py`
+2. Generate TOTP secrets for users
+3. Set up WebAuthn domain configuration
+4. Configure threat intelligence APIs
 
 ## 🛡️ Security Best Practices
 
-- ✅ Never expose credentials in logs or APIs
-- ✅ Use strong, unique passwords and PINs
-- ✅ Enable 2FA for all users
-- ✅ Regularly review audit logs
-- ✅ Keep email credentials secure
-- ✅ Monitor failed login attempts
+- ✅ **Multi-Layer Security** - Use all available authentication methods
+- ✅ **Regular Security Audits** - Review logs and threat reports
+- ✅ **Device Management** - Register and monitor trusted devices
+- ✅ **Network Security** - Monitor IP reputation and geolocation
+- ✅ **Backup Strategy** - Automated encrypted backups
+- ✅ **Incident Response** - Real-time threat detection and blocking
+- ✅ **Compliance** - Follow SOC2, GDPR, and industry standards
+- ✅ **Zero Trust** - Verify every request and session
 
-## 📊 Admin Features
+## 📊 Enterprise Admin Features
 
-- **User Creation** with email, password, and PIN
-- **User Deletion** with file cleanup
-- **System Statistics** dashboard
-- **Security Monitoring** through audit logs
-- **Role Management** for access control
+- **Real-Time Security Dashboard** with threat visualization
+- **Advanced User Management** with device tracking
+- **System Performance Monitoring** with alerts
+- **Threat Intelligence Integration** with IP reputation
+- **Automated Backup Management** with encryption
+- **Compliance Reporting** for SOC2, GDPR
+- **Multi-Session Management** across devices
+- **Biometric Device Registration** and management
 
 ## 🎮 Stream Deck Integration
 
 Launch directly from Stream Deck with:
 ```bash
-python3 /Users/nael/Documents/py-auth-system/main.py
+python3 /Users/--/Documents/py-auth-system/main.py
 ```
 
 ## 📦 Installation
 
-1. **Clone the repository**
-2. **Install dependencies**: `pip install -r requirements.txt`
-3. **Configure email** in `py/email_sender.py`
-4. **Run the system**: `python main.py`
+### Quick Start
+```bash
+git clone <repository>
+cd py-auth-system
+pip install -r config/requirements.txt
+python main.py
+```
+
+### Docker Deployment
+```bash
+docker build -f docker/Dockerfile -t py-auth-system .
+docker run -p 5001:5001 py-auth-system
+```
+
+### Production Setup
+1. **Configure Security**: Edit `config/security_config.yaml`
+2. **Set Environment Variables**: Database, email, API keys
+3. **Enable HTTPS**: Configure SSL certificates
+4. **Set up Monitoring**: Configure threat intelligence APIs
+5. **Test Security**: Run `python -m pytest tests/`
+
+### System Requirements
+- Python 3.8+
+- 2GB RAM minimum
+- SSL certificate for production
+- SMTP server for email notifications
 
 ---
-
-**© 2024 py-auth-system - Enterprise Security Made Simple**
