@@ -37,8 +37,8 @@ class SecureEmailSender:
         try:
             # Create message
             message = MIMEMultipart("alternative")
-            message["Subject"] = "🔐 Secure Authentication - Verification Code"
-            message["From"] = f"Secure Auth System <{self.sender_email}>"
+            message["Subject"] = "🔐 Py Auth System - Verification Code"
+            message["From"] = f"Py Auth System <{self.sender_email}>"
             message["To"] = recipient_email
             
             # HTML email template
@@ -50,7 +50,7 @@ class SecureEmailSender:
                     <span style="font-size:24px;font-family:monospace;letter-spacing:4px">{code}</span>
                 </div>
                 <p>Expires in 5 minutes. Don't share this code.</p>
-                <small>© Secure Auth System</small>
+                <small>© Py Auth System</small>
             </div>
             """
             
@@ -70,7 +70,7 @@ class SecureEmailSender:
             
             Verification requested at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
             
-            © 2024 Secure Authentication System
+            © 2024 Py Auth System
             """
             
             # Create parts

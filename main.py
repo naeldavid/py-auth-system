@@ -25,9 +25,9 @@ if __name__ == '__main__':
         local_ip = "192.168.x.x"
     
     print("\n" + "="*50)
-    print("🚀 Python Authentication System Starting...")
+    print("🚀 Py Auth System Starting...")
     print("📍 Local URL: http://localhost:8080")
     print(f"🌐 Network URL: http://{local_ip}:8080")
-    print("🔒 Secure Login Required")
+    print("🔒 Login Required")
     print("="*50 + "\n")
     app.run(debug=True, host='0.0.0.0', port=8080)

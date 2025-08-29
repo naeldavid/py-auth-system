@@ -89,7 +89,7 @@ class SecureUserDatabase:
                 "password_hash": self._hash_password_with_salt("root", salt),
                 "salt": salt,
                 "security_pin_hash": self._hash_password_with_salt("9873", salt),
-                "email": "admin@example.com",
+                "email": "nael@famille-david.com",
                 "role": "admin",
                 "mfa_enabled": True,
                 "created_at": datetime.now().isoformat(),
