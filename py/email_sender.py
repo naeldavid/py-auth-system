@@ -20,8 +20,7 @@ class SecureEmailSender:
         self.password = base64.b64decode(_encrypted_password).decode('utf-8')
 
         # Check if credentials are configured
-        self.configured = (self.sender_email != "asking.ai.stuff@gmail.com" and 
-                          self.password != "mrso cnmc rviq afvc ")
+        self.configured = True
     
     def send_2fa_code(self, recipient_email: str, code: str, username: str) -> bool:
         """Send professional 2FA verification email"""
