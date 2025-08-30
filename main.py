@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Python Authentication System - Main Launcher
-Enterprise-grade authentication with email 2FA
+Py Auth System with email 2FA
 """
 
 import sys
