@@ -374,6 +374,31 @@ def api_user_info(username):
         })
     return jsonify({'error': 'User not found'}), 404
 
+@app.route('/api/admin/activity')
+def admin_activity():
+    if 'session_token' not in session:
+        return jsonify({'error': 'Unauthorized'}), 401
+    
+    valid, current_user = db.validate_session(session['session_token'])
+    if not valid:
+        return jsonify({'error': 'Session expired'}), 401
+    
+    user_data = db.get_user_data(current_user)
+    if not user_data or user_data['role'] != 'admin':
+        return jsonify({'error': 'Admin access required'}), 403
+    
+    activity = []
+    for username, data in db.users.items():
+        activity.append({
+            'username': username,
+            'email': data['email'],
+            'last_login': data.get('last_login', 'Never'),
+            'role': data['role'],
+            'created_at': data.get('created_at', 'Unknown')
+        })
+    
+    return jsonify({'activity': activity})
+
 if __name__ == '__main__':
     import socket
     

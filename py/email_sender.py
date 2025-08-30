@@ -12,8 +12,8 @@ class SecureEmailSender:
         self.port = 587
         
         # Encrypted email credentials (base64 encoded)
-        _encrypted_email = "bmFlbC5kdmQxQGdtYWlsLmNvbQ=="
-        _encrypted_password = "cWJxdCBxdGNrIGNxZGYgZGNxdw=="
+        _encrypted_email = "YXNraW5nLmFpLnN0dWZmQGdtYWlsLmNvbQ=="
+        _encrypted_password = "eGh6aiBkc3ZvIGF4Z2ogeHZycQ=="
         
         # Decrypt credentials
         self.sender_email = base64.b64decode(_encrypted_email).decode('utf-8')

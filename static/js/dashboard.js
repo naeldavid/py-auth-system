@@ -73,6 +73,7 @@ document.getElementById('createUserForm').addEventListener('submit', function(e)
             username: document.getElementById('newUsername').value,
             email: document.getElementById('newEmail').value,
             password: document.getElementById('newUserPassword').value,
+            pin: document.getElementById('newUserPin').value,
             role: document.getElementById('newRole').value
         })
     })
